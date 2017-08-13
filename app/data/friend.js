@@ -15,6 +15,57 @@ var tableFriends = [
       4,
       1
     ]
+},
+
+{
+  "name":"Mr. Peepers",
+  "photo":"https://images.askmen.com/entertainment/galleries/50-snl-characters-136372974137.jpg",
+  "scores":[
+      2,
+      4,
+      8,
+      6,
+      4,
+      7,
+      2,
+      6,
+      2,
+      9
+    ]
+},
+
+{
+  "name":"Doug Butabi",
+  "photo":"https://i.ytimg.com/vi/26ePEfxG0qc/hqdefault.jpg",
+  "scores":[
+      1,
+      4,
+      5,
+      7,
+      3,
+      7,
+      4,
+      7,
+      4,
+      2
+    ]
+},
+
+{
+  "name":"Jed Mosely",
+  "photo":"http://todoseries.com/wp-content/uploads/Actualidad/84622/himym-523-2.jpg",
+  "scores":[
+      9,
+      4,
+      6,
+      2,
+      2,
+      7,
+      4,
+      3,
+      8,
+      8
+    ]
 }
     ];
 
