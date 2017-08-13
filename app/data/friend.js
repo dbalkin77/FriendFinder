@@ -18,4 +18,4 @@ var tableFriends = [
 }
     ];
 
-module.exports = tablefriends;
+module.exports = tableFriends;
