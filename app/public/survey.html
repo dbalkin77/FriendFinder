@@ -6,12 +6,13 @@
 	<!-- Latest compiled and minified CSS & JS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<script src="//code.jquery.com/jquery.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>-->
 </head>
 <body>
+    <div class="container">
 	<div class="panel panel-default">
-		<div class="panel-body">
-			<h2>Survey Questions</h2>
+		<div class="panel-body text-center">
+			<h1>Survey Questions</h1>
 		</div>
 		<form action="" method="POST" role="form">
 			<legend>About You</legend>
@@ -136,17 +137,16 @@
 		</form>
          <br>
                 <!-- Materialize Modal Trigger/Submit Button -->
-                <button type ="submit" data-target="modal1" class="waves-effect waves-light btn modal-trigger cyan lighten-1" id="submitBtn">Submit</button>
+                <button type ="submit" data-target="modal1" class="" id="submitBtn">Submit</button>
             </div>
         </div>
         <div class='col s4'>
             <p><a href='/api/friends'>API Friends List</a> | <a href='https://github.com/dbalkin77/FriendFinder' target='_blank'>GitHub Repo</a></p>
         </div>
-
-        <!-- Materialize Modal Structure -->
+    </div>
         <div id="modal1" class="modal">
           <div class="modal-content">
-            <h4>Meet Your New BFF</h4>
+            <h4>Look at this GREAT friend!</h4>
             <h5 id="matchName"></h5>
             <img id="matchPic" src="" alt="No Image" width = 250px>
           </div>
@@ -157,11 +157,9 @@
 
     </div>
 
-<!-- Grabs information and sends it to server -->
 <script type="text/javascript">
 $(document).ready(function() {
     $("#submitBtn").on("click", function() {
-        //form validation
         function validateForm() {
             var isValid = true;
             $('.validate').each(function() {
@@ -176,9 +174,7 @@ $(document).ready(function() {
             });
             return isValid;
         }
-        //if everything is filled
         if (validateForm() == true) {
-            //creates a new friend from the values submitted
             var newFriend = {
                 name: $('#name').val().trim(),
                 profilePic: $('#photo').val().trim(),
@@ -195,17 +191,12 @@ $(document).ready(function() {
                     $('#q10').val(),
                 ]
             };
-            //Grabs current URL of website
             var currentURL = window.location.origin;
-            //AJAX posts the data to friends API.
             $.post(currentURL + "/api/friends", newFriend, function(data) {
-                //Grab the result from the AJAX post so that the best match's name and photo are displayed.
                 $("#matchName").text(data.name);
                 $("#matchPic").attr("src", data.photo);
             });
-            // Show the modal with the best match
                 $('.modal').modal();
-            //clear form after submission
             $('#name').val("");
             $('#photo').val("");
             $('#q1').val("");
@@ -219,7 +210,7 @@ $(document).ready(function() {
             $('#q9').val("");
             $('#q10').val("");
         } else {
-            alert("Please fill out ALL fields before submitting survey!")
+            alert("Go back. Fill out the forms. Please.")
         }
     });
 });
